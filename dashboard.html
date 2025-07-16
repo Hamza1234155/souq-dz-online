@@ -4,7 +4,18 @@
   <meta charset="UTF-8">
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="js/firebase-config.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD2tQzA0GYaICs3WcFRzfXKtaKK06r9s5E",
+      authDomain: "souq-dz-online.firebaseapp.com",
+      projectId: "souq-dz-online",
+      storageBucket: "souq-dz-online.firebasestorage.app",
+      messagingSenderId: "532907223542",
+      appId: "1:532907223542:web:6c2fdb1b65dc2e044d7fd7",
+      measurementId: "G-8ZX8C5Y8P2"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <style>
     body { font-family: Arial; text-align: center; padding: 20px; }
     button { margin-top: 20px; padding: 10px; background-color: #d32f2f; color: white; border: none; border-radius: 5px; }
@@ -12,7 +23,7 @@
 </head>
 <body>
   <h2>👋 أهلاً بك في سوق DZ</h2>
-  <p id="user-info">جارٍ تحميل بياناتك...</p>
+  <p id="user-info">جاري التحقق من حسابك...</p>
   <button onclick="logout()">🚪 تسجيل الخروج</button>
 
   <script>
