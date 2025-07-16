@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; text-align: center; }
+    input, button { margin: 10px; padding: 10px; width: 90%; max-width: 300px; border-radius: 5px; }
+    button { background-color: #2e7d32; color: white; border: none; }
+  </style>
+</head>
+<body>
+  <h2>🔐 تسجيل الدخول</h2>
+  <input type="email" id="email" placeholder="📧 البريد الإلكتروني"><br>
+  <input type="password" id="password" placeholder="🔒 كلمة المرور"><br>
+  <button onclick="login()">دخول</button>
+  <p id="msg"></p>
+  <a href="signup.html">إنشاء حساب</a> |
+  <a href="reset-password.html">نسيت كلمة المرور؟</a>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => window.location.href = "dashboard.html")
+        .catch(err => document.getElementById("msg").innerText = "❌ " + err.message);
+    }
+  </script>
+</body>
+</html>
