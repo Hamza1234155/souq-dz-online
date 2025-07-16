@@ -4,9 +4,20 @@
   <meta charset="UTF-8">
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="js/firebase-config.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyD2tQzA0GYaICs3WcFRzfXKtaKK06r9s5E",
+      authDomain: "souq-dz-online.firebaseapp.com",
+      projectId: "souq-dz-online",
+      storageBucket: "souq-dz-online.firebasestorage.app",
+      messagingSenderId: "532907223542",
+      appId: "1:532907223542:web:6c2fdb1b65dc2e044d7fd7",
+      measurementId: "G-8ZX8C5Y8P2"
+    };
+    firebase.initializeApp(firebaseConfig);
+  </script>
   <style>
-    body { font-family: Arial; padding: 20px; text-align: center; }
+    body { font-family: Arial; text-align: center; padding: 20px; }
     input, button { margin: 10px; padding: 10px; width: 90%; max-width: 300px; border-radius: 5px; }
     button { background-color: #2e7d32; color: white; border: none; }
   </style>
@@ -17,14 +28,14 @@
   <input type="password" id="password" placeholder="🔒 كلمة المرور"><br>
   <button onclick="signup()">تسجيل</button>
   <p id="msg"></p>
-  <a href="index.html">🔙 العودة لتسجيل الدخول</a>
+  <a href="index.html">🔙 العودة</a>
 
   <script>
     function signup() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
       firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => document.getElementById("msg").innerText = "✅ تم إنشاء الحساب بنجاح!")
+        .then(() => document.getElementById("msg").innerText = "✅ تم إنشاء الحساب!")
         .catch(err => document.getElementById("msg").innerText = "❌ " + err.message);
     }
   </script>
